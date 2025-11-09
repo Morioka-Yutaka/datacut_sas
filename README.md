@@ -71,6 +71,15 @@ Export and Report output
 %output_and_report(report_path=D:\out, exclude=dlds);
 
 ~~~
+<img width="160" height="142" alt="Image" src="https://github.com/user-attachments/assets/1a9696ad-6957-4d3d-872a-94217746bfab" /> 
+<img width="579" height="178" alt="Image" src="https://github.com/user-attachments/assets/0b3ac31a-8f3b-4ceb-977d-ae38a25f12f4" />   
+▽
+▽
+▽
+<img width="170" height="142" alt="image" src="https://github.com/user-attachments/assets/e411682b-7a2a-4504-9718-b146755136bd" />
+
+
+
 
 ## `%cutoff_setting()` macro <a name="cutoffsetting-macro-4"></a> ######
   Purpose:　　
