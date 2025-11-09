@@ -90,7 +90,8 @@ Export and Report output
 ---
 
 ## `%cutoff_setting()` macro <a name="cutoffsetting-macro-4"></a> ######
-  Purpose:　　
+  Purpose:　　  
+  
     Initialize the cutoff environment:  
       - Save cutoff date/datetime to global macro variables  
       - Clear WORK and target OUTLIB (optional) libraries  
