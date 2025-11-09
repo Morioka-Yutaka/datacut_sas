@@ -38,7 +38,7 @@ ods excel options( SHEET_INTERVAL = "NONE" );
  run;
 ods excel close;
 
-proc copy inlib=work outlib=c_outlib;
+proc copy inlib=work outlib=c_outlib memtype = DATA;
  exclude   _: dummy all_audit audit: &exclude.; 
 run;
 %mend;
