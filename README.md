@@ -25,6 +25,9 @@ data base_sdtm.ts;
 TSPARAMCD="ACTSUB";
 run;
 ~~~
+<img width="579" height="178" alt="Image" src="https://github.com/user-attachments/assets/0b3ac31a-8f3b-4ceb-977d-ae38a25f12f4" />  
+
+
 
 ## `%cutoff_setting()` macro <a name="cutoffsetting-macro-4"></a> ######
   Purpose:　　
