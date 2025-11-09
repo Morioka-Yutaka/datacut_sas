@@ -34,7 +34,7 @@ run;
 inlib = D:\in
 ,outlib=D:\out
 ,cutoff_date=2025-11-01
-,cutoff_datetime=2022-11-01T00:00
+,cutoff_datetime=2025-11-01T00:00
 );
 
 /*------
@@ -82,10 +82,13 @@ Export and Report output
 ▽  
 ### After cut-off
 <img width="170" height="142" alt="image" src="https://github.com/user-attachments/assets/e411682b-7a2a-4504-9718-b146755136bd" />
-<img width="556" height="162" alt="image" src="https://github.com/user-attachments/assets/eb13fbe9-28d8-406a-8f7f-5b5110796ed1" />
+<img width="545" height="143" alt="image" src="https://github.com/user-attachments/assets/bcd992ff-ea89-42fc-8457-7dbbb2cddfb2" />
+
 
 ### Cut-off report
- <img width="582" height="248" alt="image" src="https://github.com/user-attachments/assets/f2b3ff0b-94f5-495e-86cf-e3d3257bb9fa" />
+<img width="597" height="232" alt="image" src="https://github.com/user-attachments/assets/bf759c51-8f94-4db0-b500-b32b02b3ef9f" />
+
+
 
 ---
 
