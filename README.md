@@ -3,6 +3,29 @@ SAS macros to prepare SDTM for data-cut analyses: remove post-cutoff records, ov
 
 <img width="360" height="360" alt="Image" src="https://github.com/user-attachments/assets/882b5390-e3cf-4a81-8a33-091db49217c8" />
 
+## Example
+### test data
+~~~sas
+libname base_sdtm "D:\Users\10089669\Desktop\audit_test\in";
+data base_sdtm.dm;
+length USUBJID RFSTDTC RFXSTDTC RFPENDTC DTHDTC DTHFL $200.;
+USUBJID="A-001";RFSTDTC="2025-11-02";RFXSTDTC="2025-11-02T10:00";RFPENDTC="2025-12-01";DTHDTC="";DTHFL="";output;
+USUBJID="A-002";RFSTDTC="2025-10-01";RFXSTDTC="2025-10-01T10:00";RFPENDTC="2025-10-30";;DTHDTC="";DTHFL="";output;
+USUBJID="A-003";RFSTDTC="2025-10-02";RFXSTDTC="2025-11-02T10:00";RFPENDTC="2025-12-01";;DTHDTC="";DTHFL="";output;
+USUBJID="A-004";RFSTDTC="2025-10-05";RFXSTDTC="2025-10-12T10:00";RFPENDTC="2025-12-05";;DTHDTC="2025-12-05";DTHFL="Y";output;
+USUBJID="A-005";RFSTDTC="";RFXSTDTC="";RFPENDTC="";DTHDTC="";DTHFL="";output;
+USUBJID="A-006";RFSTDTC="";RFXSTDTC="";RFPENDTC="";DTHDTC="";DTHFL="";output;
+run;
+data base_sdtm.ae;
+length USUBJID AESTDTC  $200.;
+USUBJID="A-003";AESTDTC="2025-11-02";output;
+USUBJID="A-004";AESTDTC="2025-10-10";output;
+run;
+data base_sdtm.ts;
+TSPARAMCD="ACTSUB";
+run;
+~~~
+
 ## `%cutoff_setting()` macro <a name="cutoffsetting-macro-4"></a> ######
   Purpose:　　
     Initialize the cutoff environment:  
