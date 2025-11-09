@@ -25,9 +25,52 @@ data c_inlib.ts;
 TSPARAMCD="ACTSUB";
 run;
 ~~~
+<img width="160" height="142" alt="Image" src="https://github.com/user-attachments/assets/1a9696ad-6957-4d3d-872a-94217746bfab" /> 
 <img width="579" height="178" alt="Image" src="https://github.com/user-attachments/assets/0b3ac31a-8f3b-4ceb-977d-ae38a25f12f4" />  
-<img width="160" height="142" alt="Image" src="https://github.com/user-attachments/assets/1a9696ad-6957-4d3d-872a-94217746bfab" />  
+ 
+~~~sas
+/*Setting and All SDTM Datasets import to Work*/
+%cutoff_setting(
+inlib = D:\in
+,outlib=D:\out
+,cutoff_date=2025-11-01
+,cutoff_datetime=2022-11-01T00:00
+);
 
+/*------
+ DM domain
+------*/
+/*Change the flag and death date to missing for deaths occurring after the cutoff date*/
+%cutoff_missing(domain=dm, ref_var=DTHDTC ,missing_var=DTHFL, type=DATE);
+%cutoff_missing(domain=dm, ref_var=DTHDTC ,missing_var=DTHDTC, type=DATE);
+/*List dataset for deletion at USUBJID level*/
+data dlds;
+length USUBJID $200.;
+USUBJID="A-005";output;
+USUBJID="A-006";output;
+run;
+/*Delete at the participant level based on the list dataset*/
+%delete_participants(domain=dm ,delete_list_ds=dlds);
+/*Delete records with RFSTDTC after the cutoff date*/
+%cutoff_delete(domain=dm, var=RFSTDTC, type=DATE);
+/*Overwrite the RFPENDTC that has been exceeded by the cutoff date with the cutoff date.*/
+%cutoff_overwrite(domain=dm, var=RFPENDTC, type=DATE);
+/*Overwrite the RFXSTDTC that has been exceeded by the cutoff datetime with the cutoff datetime.*/
+%cutoff_overwrite(domain=dm, var=RFXSTDTC, type=DATETIME);
+/*------
+AE domain
+------*/
+/*Delete at the participant level based on the list dataset*/
+%delete_participants(domain=ae ,delete_list_ds=dlds);
+/*Delete records with AESTDTC after the cutoff date*/
+%cutoff_delete(domain=ae, var=AESTDTC, type=DATE);
+/*------
+Export and Report output
+------*/
+/*Move all datasets in Work to the cutoff data output library and generate a cutoff processing report.*/
+%output_and_report(report_path=D:\out, exclude=dlds);
+
+~~~
 
 ## `%cutoff_setting()` macro <a name="cutoffsetting-macro-4"></a> ######
   Purpose:　　
