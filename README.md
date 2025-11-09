@@ -90,13 +90,13 @@ Export and Report output
 ---
 
 ## `%cutoff_setting()` macro <a name="cutoffsetting-macro-4"></a> ######
-  Purpose:　　  
+  ### Purpose:　　  
   
     Initialize the cutoff environment:  
       - Save cutoff date/datetime to global macro variables  
       - Clear WORK and target OUTLIB (optional) libraries  
       - Copy all datasets from input library to WORK  
-  Parameters:  
+ ### Parameters:  
   ~~~text
     inlib=           Path or libref of the input library to copy from
     outlib=          Path or libref of the output library to export later
