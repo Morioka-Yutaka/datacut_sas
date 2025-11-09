@@ -6,7 +6,7 @@ SAS macros to prepare SDTM for data-cut analyses: remove post-cutoff records, ov
 ## Example
 ### test data
 ~~~sas
-libname base_sdtm "D:\Users\10089669\Desktop\audit_test\in";
+libname base_sdtm "D:\in";
 data base_sdtm.dm;
 length USUBJID RFSTDTC RFXSTDTC RFPENDTC DTHDTC DTHFL $200.;
 USUBJID="A-001";RFSTDTC="2025-11-02";RFXSTDTC="2025-11-02T10:00";RFPENDTC="2025-12-01";DTHDTC="";DTHFL="";output;
