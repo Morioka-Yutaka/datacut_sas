@@ -103,14 +103,14 @@ Export and Report output
     cutoff_date=     Cutoff date in ISO 8601 (YYYY-MM-DD)
     cutoff_datetime= Cutoff datetime in ISO 8601 (YYYY-MM-DDThh:mm[[:ss]])
 ~~~
-  Globals Created:  
+  ### Globals Created:  
     cutoff__date, cutoff__datetime
-  Side Effects:  
+  ###  Side Effects:  
     - Deletes all DATA members in WORK (and DATA members in c_outlib)  
     - Creates librefs c_inlib and c_outlib  
-  Notes:  
+  ### Notes:  
     - This macro does not perform any transformations, only environment setup.  
-  Usage Example:    
+  ### Usage Example:    
   ~~~sas
       %cutoff_setting(
       inlib = D:\in
@@ -123,19 +123,19 @@ Export and Report output
   
 ---
 ## `%cutoff_overwrite()` macro <a name="cutoffoverwrite-macro-3"></a> ######
-Purpose:  
+### Purpose:  
     Overwrite values in a date/datetime variable with the cutoff value when the existing value is strictly greater than the cutoff.
-  Parameters:  
+  ### Parameters:  
   ~~~text
     domain=   Target dataset (e.g., DM)
     var=      Variable to overwrite (e.g., RFSTDTC/RFPENDTC/RFXSTDTC)
     type=     DATE | DATETIME (controls comparison and assigned value)
   ~~~
-  Audit:  
+  ### Audit:  
     - Starts dataset audit, applies update, materializes audit trail into audit_<domain>, and terminates audit.  
-  Notes:  
+ ###  Notes:  
     - Comparison is string-based as written; ensure ISO 8601 formatting for safety.  
-  Usage Example:  
+  ### Usage Example:  
   ~~~sas
   %cutoff_overwrite(domain=dm, var=RFPENDTC, type=DATE);
   %cutoff_overwrite(domain=dm, var=RFXSTDTC, type=DATETIME);
@@ -144,37 +144,37 @@ Purpose:
 ---
 
 ## `%cutoff_delete()` macro <a name="cutoffdelete-macro-1"></a> ######
-  Purpose:  
+  ### Purpose:  
     Delete records where a date/datetime variable is strictly greater than the cutoff value.  
-  Parameters:  
+  ### Parameters:  
   ~~~sas
     domain=   Target dataset (e.g., DM)
     var=      Variable to compare (e.g., RFICDTC)
     type=     DATE | DATETIME
   ~~~
-  Audit:  
+ ###  Audit:  
     - Starts dataset audit, deletes records, writes audit to audit_<domain>, and terminates audit.  
-  Notes:  
+  ### Notes:  
     - Comparison is string-based as written; ensure ISO 8601 formatting for safety.  
-  Usage Example:  
+ ###  Usage Example:  
   ~~~sas
   %cutoff_delete(domain=ae, var=AESTDTC, type=DATE);
   ~~~
   
 ---
 ## `%cutoff_missing()` macro <a name="cutoffmissing-macro-2"></a> ######
-  Purpose:  
+  ### Purpose:  
     Set a target variable to missing when a reference date/datetime variable is strictly greater than the cutoff.
-  Parameters:  
+  ### Parameters:  
   ~~~sas
     domain=       Target dataset (e.g., DM)
     ref_var=      Variable used for comparison to the cutoff (e.g., DTHDTC)
     missing_var=  Variable to set missing (e.g., DTHFL or DTHDTC)
     type=         DATE | DATETIME
   ~~~
-  Audit:  
+  ### Audit:  
     - Starts dataset audit, updates the target variable to missing, writes audit to audit_<domain>, and terminates audit.  
-  Usage Example:  
+ ###  Usage Example:  
   ~~~sas
   %cutoff_missing(domain=dm, ref_var=DTHDTC ,missing_var=DTHFL, type=DATE);
   %cutoff_missing(domain=dm, ref_var=DTHDTC ,missing_var=DTHDTC, type=DATE);
@@ -183,38 +183,38 @@ Purpose:
 ---
 
 ## `%delete_participants()` macro <a name="deleteparticipants-macro-5"></a> ######
-  Purpose:  
+###   Purpose:  
     Delete records for participants listed in a separate dataset (USUBJID-level).  
-  Parameters:  
+###   Parameters:  
   ~~~sas
     domain=          Target dataset (e.g., DM)
     delete_list_ds=  Dataset with a column USUBJID listing rows to delete
    ~~~
-  Audit:  
+ ###  Audit:  
     - Starts dataset audit, deletes by IN-subquery, writes audit to audit_<domain>, and terminates audit.   
-  Notes:  
+###   Notes:  
     - Assumes the key variable is USUBJID.  
-  Usage Example:   
+ ###  Usage Example:   
  ~~~sas
  %delete_participants(domain=dm ,delete_list_ds=dlds);
  ~~~
 ---
 
 ## `%output_and_report()` macro <a name="outputandreport-macro-6"></a> ######
-  Purpose:  
+ ###  Purpose:  
     Export all WORK datasets to the configured output library and create an Excel report summarizing the audit trails.  
-  Parameters:  
+###   Parameters:  
   ~~~text
     report_path=  Folder path to write the Excel report (cutoff_report.xlsx)
     exclude=      Names to exclude when copying from WORK to c_outlib
   ~~~
-  Outputs:  
+###   Outputs:  
     - Excel file: &report_path\cutoff_report.xlsx   
     - Datasets: all WORK datasets (except excluded) copied to c_outlib  
-  Notes:  
+###   Notes:  
     - Consumes audit_* tables via SET audit_:  
     - Adds cutoff date/time text blocks to the report.  
- Usage Example  
+ ### Usage Example  
  ~~~sas
  %output_and_report(report_path=D:\audit_test\out, exclude=dlds);
  ~~~
