@@ -6,8 +6,8 @@ SAS macros to prepare SDTM for data-cut analyses: remove post-cutoff records, ov
 ## Example
 ### test data
 ~~~sas
-libname base_sdtm "D:\in";
-data base_sdtm.dm;
+libname c_inlib "D:\in";
+data c_inlib.dm;
 length USUBJID RFSTDTC RFXSTDTC RFPENDTC DTHDTC DTHFL $200.;
 USUBJID="A-001";RFSTDTC="2025-11-02";RFXSTDTC="2025-11-02T10:00";RFPENDTC="2025-12-01";DTHDTC="";DTHFL="";output;
 USUBJID="A-002";RFSTDTC="2025-10-01";RFXSTDTC="2025-10-01T10:00";RFPENDTC="2025-10-30";;DTHDTC="";DTHFL="";output;
@@ -16,17 +16,17 @@ USUBJID="A-004";RFSTDTC="2025-10-05";RFXSTDTC="2025-10-12T10:00";RFPENDTC="2025-
 USUBJID="A-005";RFSTDTC="";RFXSTDTC="";RFPENDTC="";DTHDTC="";DTHFL="";output;
 USUBJID="A-006";RFSTDTC="";RFXSTDTC="";RFPENDTC="";DTHDTC="";DTHFL="";output;
 run;
-data base_sdtm.ae;
+data c_inlib.ae;
 length USUBJID AESTDTC  $200.;
 USUBJID="A-003";AESTDTC="2025-11-02";output;
 USUBJID="A-004";AESTDTC="2025-10-10";output;
 run;
-data base_sdtm.ts;
+data c_inlib.ts;
 TSPARAMCD="ACTSUB";
 run;
 ~~~
 <img width="579" height="178" alt="Image" src="https://github.com/user-attachments/assets/0b3ac31a-8f3b-4ceb-977d-ae38a25f12f4" />  
-
+<img width="160" height="142" alt="Image" src="https://github.com/user-attachments/assets/1a9696ad-6957-4d3d-872a-94217746bfab" />  
 
 
 ## `%cutoff_setting()` macro <a name="cutoffsetting-macro-4"></a> ######
