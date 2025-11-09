@@ -73,10 +73,12 @@ Export and Report output
 ~~~
 <img width="160" height="142" alt="Image" src="https://github.com/user-attachments/assets/1a9696ad-6957-4d3d-872a-94217746bfab" /> 
 <img width="579" height="178" alt="Image" src="https://github.com/user-attachments/assets/0b3ac31a-8f3b-4ceb-977d-ae38a25f12f4" />   
-▽
-▽
-▽
+
+▽　　
+▽　　
+▽　　
 <img width="170" height="142" alt="image" src="https://github.com/user-attachments/assets/e411682b-7a2a-4504-9718-b146755136bd" />
+<img width="556" height="162" alt="image" src="https://github.com/user-attachments/assets/eb13fbe9-28d8-406a-8f7f-5b5110796ed1" />
 
 
 
