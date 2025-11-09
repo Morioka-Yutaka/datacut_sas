@@ -79,10 +79,11 @@ Export and Report output
 ▽  
 
 ▽  
-
+### After cut-off
 <img width="170" height="142" alt="image" src="https://github.com/user-attachments/assets/e411682b-7a2a-4504-9718-b146755136bd" />
 <img width="556" height="162" alt="image" src="https://github.com/user-attachments/assets/eb13fbe9-28d8-406a-8f7f-5b5110796ed1" />
-
+### bCut-off report
+ <img width="582" height="248" alt="image" src="https://github.com/user-attachments/assets/f2b3ff0b-94f5-495e-86cf-e3d3257bb9fa" />
 
 
 
